@@ -1,7 +1,9 @@
 <div>
-    <div class="face-snap-card" *ngFor="let jugements of data">
+    <div class="face-snap-card" *ngFor="let jugements of data ">
         <!-- <h3>N° {{ jugements }}</h3> -->
         <h3>Note : {{ jugements.note}}/20 </h3>
         <h3>Titre de l'image : {{ jugements.title }} </h3> 
+        <h3>chemin : {{ jugements.imgUrl }} </h3> 
+        <img [src]="sanitizer.bypassSecurityTrustResourceUrl(jugements.imgUrl)"  [alt]="jugements.title" style="max-width:200px" >
     </div>
 </div>

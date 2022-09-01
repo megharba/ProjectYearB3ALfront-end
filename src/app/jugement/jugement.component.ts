@@ -24,6 +24,8 @@ export class JugementComponent implements OnInit {
 
   listJugements = new Array()
 
+  message : boolean = false;
+
   constructor(
   private JugementService: JugementService) { }
 
@@ -58,8 +60,10 @@ onFileChange(event: any ) {
     const formData = new FormData();
     formData.append('title',this.jugementForm.get('title')?.value??'test');
     formData.append('image',this.jugementForm.get('fileSource')?.value??'test');
+    
     this.JugementService.postJugement(formData).subscribe(j => this.listJugements.push(j));
     console.log("ok")
     console.log(this.jugementForm.value)
+    this.message =true;
 }
 }
