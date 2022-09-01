@@ -25,6 +25,10 @@ postJugement(data: any) : Observable<any> {
 }
 
 
+getAllJugements(): Observable<any> {
+  return this.http.get<any>('http://localhost:8080/jugement/classement');
+}
+
 
 // addJugement(formValue: { title: string, imageUrl: string}): Observable<Jugement> {
 //   return this.getAllFaceSnaps().pipe(
